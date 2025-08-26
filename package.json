@@ -1,0 +1,20 @@
+{
+  "name": "typeapi",
+  "version": "1.0.0",
+  "description": "Api feita usando type script",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduardoLopes085/typeapi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EduardoLopes085/typeapi/issues"
+  },
+  "homepage": "https://github.com/EduardoLopes085/typeapi#readme"
+}
