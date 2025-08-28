@@ -1,0 +1,15 @@
+GET http://localhost:3333/courser
+
+
+###
+POST http://localhost:3333/courser
+
+
+###
+
+PUT http://localhost:3333/courser
+
+
+###
+
+DELETE http://localhost:3333/courser

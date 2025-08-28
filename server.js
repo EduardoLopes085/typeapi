@@ -1,11 +1,44 @@
-const http = require('node:http')
+const crypto = require('crypto');
 
-const server = http.createServer((request, reply) => {
-    reply.write('Hello World');
-    reply.end();
+//importação do fastify 
+const fastify = require('fastify');
+
+//criação do servidor
+const server = fastify({
+    logger: true
+
+});
+
+const courses = [
+    {id: '1', title : 'Curso de Node.js'},
+    {id: '2', title : 'Curso de React'},
+    {id: '3', title : 'Curso de React Native'},
+]
+
+server.get('/courser', () =>{
+    return courses
+})
+
+
+server.post('/courser', (request, reply)=>{
+    courseID = crypto.randomUUID()
+    
+    courses.push({
+        id: courseID, 
+        title: 'Novo Curso'
+    })
+
+    return reply.status(201).send({ courseID })
 });
 
 
-server.listen(3333).on('listening', () =>{
+server.listen({port:3333}).then(
+    () =>{
     console.log('HTTP server is running!');
 });
+
+
+
+
+
+
