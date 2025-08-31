@@ -1,12 +1,13 @@
+### GET ALL COURSES
 GET http://localhost:3333/courses
 
 
-###
+### GET BY ID 
 GET http://localhost:3333/courses/1
 
 
 
-###
+### POST 
 POST http://localhost:3333/courses
 Content-Type: application/json
 
@@ -14,11 +15,11 @@ Content-Type: application/json
     "title" : "Curso de Fastify"
 }
 
-###
+### PUT 
 
 PUT http://localhost:3333/courses
 
 
-###
+### DELETE
 
 DELETE http://localhost:3333/courses
