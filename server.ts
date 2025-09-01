@@ -1,8 +1,10 @@
 //import de lib random 
-const crypto = require('crypto');
+//const crypto = require('crypto');
+import crypto from 'node:crypto';
 
 //importação do fastify 
-const fastify = require('fastify');
+//const fastify = require('fastify');
+import fastify from 'fastify';
 
 //criação do servidor
 //uma variável recebe a classe fastify para ter acesso a todos os seus métodos
@@ -31,9 +33,14 @@ server.get('/courses', () =>{
 })
 
 server.get('/courses/:id', (request, reply)=>{
-    const { id } = request.params;
+    type Params = {
+        id: string
+    }
+    
+    const params = request.params as Params
+    const courseId = params.id
   
-    const course = courses.find(course => course.id == id)
+    const course = courses.find(course => course.id === courseId)
 
     if (course){
         return { course }
@@ -44,19 +51,25 @@ server.get('/courses/:id', (request, reply)=>{
 })
 
 server.post('/courses', (request, reply)=>{
-    const { title } = request.body
-    const courseID = crypto.randomUUID()
+    type Body = {
+        id: string,
+        title: string
+    }
+    
+    const body = request.body as Body
+    const courseId = body.id
+    const title = body.title
     
     if(!title){
         return reply.status(202).send({message : 'Título não informado'})
     }
 
     courses.push({
-        id: courseID, 
+        id: courseId, 
         title: title
     })
 
-    return reply.status(201).send({ courseID })
+    return reply.status(201).send({ courseId })
     
 });
 
